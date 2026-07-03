@@ -8,6 +8,7 @@ import { siteConfig } from "@/lib/config";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { AvatarUpload } from "./avatar-upload";
+import { DeleteAccountButton } from "./delete-account-button";
 
 export const metadata = {
   title: `Account Settings — ${siteConfig.name}`,
@@ -137,9 +138,7 @@ export default async function SettingsPage() {
                 <h3 className="font-medium text-white">Delete Account</h3>
                 <p className="text-sm text-zinc-400">Permanently delete your account and all data</p>
               </div>
-              <Button variant="outline" className="text-red-400 border-red-400/50 hover:bg-red-400/10 hover:text-red-300 shrink-0">
-                Delete Account
-              </Button>
+              <DeleteAccountButton />
             </div>
           </div>
           

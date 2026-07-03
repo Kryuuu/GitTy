@@ -112,7 +112,7 @@ export interface PublicPage {
   id: string;
   user_id: string;
   theme: string;
-  layout_config: { alignment?: string; spacing?: string; card_style?: string };
+  layout_config: { alignment?: string; spacing?: string; card_style?: string; fontFamily?: string; bgImage?: string; accentColor?: string; customCss?: string };
   links: { title: string; url: string; icon?: string; description?: string; is_pinned?: boolean; is_hidden?: boolean; category?: string }[];
   custom_sections: { id: string; type: string; content: any }[];
   booking_config: { enabled?: boolean; provider?: string; url?: string };

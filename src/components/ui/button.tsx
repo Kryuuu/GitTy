@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { forwardRef, type ButtonHTMLAttributes } from "react";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary" | "ghost" | "danger" | "gradient";
+  variant?: "primary" | "secondary" | "ghost" | "danger" | "gradient" | "outline";
   size?: "sm" | "md" | "lg";
   isLoading?: boolean;
 }
@@ -39,6 +39,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         "bg-red-600 text-white hover:bg-red-500 active:bg-red-700 shadow-lg shadow-red-600/25",
       gradient:
         "gradient-brand text-white shadow-lg shadow-brand-600/25 hover:shadow-xl hover:shadow-brand-600/30 hover:scale-[1.02] active:scale-[0.98]",
+      outline:
+        "bg-transparent border border-surface-400 text-zinc-300 hover:bg-surface-300 hover:text-white",
     };
 
     const sizes = {
