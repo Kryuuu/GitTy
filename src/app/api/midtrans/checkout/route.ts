@@ -51,8 +51,9 @@ export async function POST(request: NextRequest) {
     }
 
     const origin = request.headers.get("origin") || process.env.NEXT_PUBLIC_APP_URL || "";
-    // Generate a unique order ID for Midtrans
-    const orderId = `GITTY-${orgId}-${plan}-${Date.now()}-${crypto.randomBytes(4).toString("hex")}`;
+    // Generate a unique order ID for Midtrans (Max 50 characters)
+    const shortOrgId = orgId.split('-')[0]; // 8 chars
+    const orderId = `GIT-${shortOrgId}-${plan}-${Date.now()}`;
 
     // Midtrans expects price in IDR for Indonesian merchants.
     // The price in config is already the gross amount needed.
@@ -68,10 +69,16 @@ export async function POST(request: NextRequest) {
     });
 
     return NextResponse.json({ url: session.redirect_url, token: session.token });
-  } catch (error) {
+  } catch (error: any) {
     console.error("Midtrans checkout error:", error);
+    try {
+      require("fs").appendFileSync(
+        "midtrans_error.log",
+        new Date().toISOString() + "\n" + (error?.stack || error?.message || JSON.stringify(error)) + "\n\n"
+      );
+    } catch(e) {}
     return NextResponse.json(
-      { error: "Failed to create checkout session" },
+      { error: error?.message || "Failed to create checkout session" },
       { status: 500 }
     );
   }

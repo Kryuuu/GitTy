@@ -1,0 +1,75 @@
+2026-07-11T07:16:09.962Z
+MidtransError: Midtrans API is returning API error. HTTP status code: 400. API response: {"error_messages":["transaction_details.order_id is too long"]}
+    at C:\Users\USER\Downloads\Gitty\.next\dev\server\chunks\node_modules_0lzxgcx._.js:15224:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+
+2026-07-11T07:16:23.289Z
+MidtransError: Midtrans API is returning API error. HTTP status code: 400. API response: {"error_messages":["transaction_details.order_id is too long"]}
+    at C:\Users\USER\Downloads\Gitty\.next\dev\server\chunks\node_modules_0lzxgcx._.js:15224:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+
+2026-07-11T07:20:20.250Z
+MidtransError: Midtrans API is returning API error. HTTP status code: 402. API response: {"status_code":"402","status_message":"Payment channel is not activated.","id":"1a27d5b9-1d20-4ba8-bb5b-4617c534d7fe"}
+    at C:\Users\USER\Downloads\Gitty\.next\dev\server\chunks\node_modules_0lzxgcx._.js:15217:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+
+2026-07-11T07:20:34.064Z
+MidtransError: Midtrans API is returning API error. HTTP status code: 402. API response: {"status_code":"402","status_message":"Payment channel is not activated.","id":"29e318aa-7ee0-44ee-9994-24789cbc440f"}
+    at C:\Users\USER\Downloads\Gitty\.next\dev\server\chunks\node_modules_0lzxgcx._.js:15217:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+
+2026-07-11T07:20:47.038Z
+MidtransError: Midtrans API is returning API error. HTTP status code: 402. API response: {"status_code":"402","status_message":"Payment channel is not activated.","id":"5d30943b-a8e1-45da-8198-2c90b2d10cad"}
+    at C:\Users\USER\Downloads\Gitty\.next\dev\server\chunks\node_modules_0lzxgcx._.js:15217:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+
+2026-07-11T07:21:41.148Z
+MidtransError: Midtrans API is returning API error. HTTP status code: 401. API response: {"status_code":"401","status_message":"Unknown Merchant server_key/id","id":"3dbbd615-790b-4863-854f-031743fbc338"}
+    at C:\Users\USER\Downloads\Gitty\.next\dev\server\chunks\node_modules_0lzxgcx._.js:15224:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+
+2026-07-11T07:23:42.973Z
+MidtransError: Midtrans API is returning API error. HTTP status code: 402. API response: {"status_code":"402","status_message":"Payment channel is not activated.","id":"741dbdc7-55c6-42d3-bf74-7ba638fee4d2"}
+    at C:\Users\USER\Downloads\Gitty\.next\dev\server\chunks\node_modules_0lzxgcx._.js:15217:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+
+2026-07-11T07:24:27.706Z
+MidtransError: Midtrans API is returning API error. HTTP status code: 401. API response: {"status_code":"401","status_message":"Unknown Merchant server_key/id","id":"b521a4bd-891f-42bd-ac93-40d45e4ca3ca"}
+    at C:\Users\USER\Downloads\Gitty\.next\dev\server\chunks\node_modules_0lzxgcx._.js:15224:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+
+2026-07-11T07:25:26.700Z
+MidtransError: Midtrans API is returning API error. HTTP status code: 401. API response: {"status_code":"401","status_message":"Unknown Merchant server_key/id","id":"c0136b0a-ae66-4fc9-8e8f-b03b49bd2b73"}
+    at C:\Users\USER\Downloads\Gitty\.next\dev\server\chunks\node_modules_0lzxgcx._.js:15224:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+
+2026-07-11T07:26:01.573Z
+MidtransError: Midtrans API is returning API error. HTTP status code: 401. API response: {"status_code":"401","status_message":"Unknown Merchant server_key/id","id":"81aaf88c-7090-4535-8759-16bcbdc28df4"}
+    at C:\Users\USER\Downloads\Gitty\.next\dev\server\chunks\node_modules_0lzxgcx._.js:15224:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+
+2026-07-11T07:26:11.128Z
+MidtransError: Midtrans API is returning API error. HTTP status code: 401. API response: {"status_code":"401","status_message":"Unknown Merchant server_key/id","id":"881d05c6-3011-4fbe-98df-a57115fccd13"}
+    at C:\Users\USER\Downloads\Gitty\.next\dev\server\chunks\node_modules_0lzxgcx._.js:15224:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+
+2026-07-11T07:27:39.265Z
+MidtransError: Midtrans API is returning API error. HTTP status code: 402. API response: {"status_code":"402","status_message":"Payment channel is not activated.","id":"534cfc08-d6cd-488a-b3ff-96ef768981ac"}
+    at C:\Users\USER\Downloads\Gitty\.next\dev\server\chunks\node_modules_0lzxgcx._.js:15217:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+
+2026-07-11T07:29:26.341Z
+MidtransError: Midtrans API is returning API error. HTTP status code: 402. API response: {"status_code":"402","status_message":"Payment channel is not activated.","id":"79af01ff-8b6c-47a2-afd3-45ced337ab90"}
+    at C:\Users\USER\Downloads\Gitty\.next\dev\server\chunks\node_modules_0lzxgcx._.js:15217:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+
+2026-07-11T07:29:33.869Z
+MidtransError: Midtrans API is returning API error. HTTP status code: 402. API response: {"status_code":"402","status_message":"Payment channel is not activated.","id":"535034ac-605b-4e4a-9fc9-880cf8468b3c"}
+    at C:\Users\USER\Downloads\Gitty\.next\dev\server\chunks\node_modules_0lzxgcx._.js:15217:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+
+2026-07-11T07:31:20.118Z
+MidtransError: Midtrans API is returning API error. HTTP status code: 402. API response: {"status_code":"402","status_message":"Payment channel is not activated.","id":"4e2e9aa4-9991-4e04-abe7-5b08579f1d2e"}
+    at C:\Users\USER\Downloads\Gitty\.next\dev\server\chunks\node_modules_0lzxgcx._.js:15217:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+

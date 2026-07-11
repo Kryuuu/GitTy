@@ -35,7 +35,7 @@ export const plans = {
   },
   pro: {
     name: "Pro",
-    price: 99000,
+    price: 75000,
     priceId: process.env.MIDTRANS_PRICE_PRO || "",
     features: [
       "5 Organizations",
@@ -75,7 +75,7 @@ export const plans = {
   },
   enterprise: {
     name: "Enterprise",
-    price: 999000,
+    price: 500000,
     priceId: process.env.MIDTRANS_PRICE_ENTERPRISE || "",
     features: [
       "Everything in Team",

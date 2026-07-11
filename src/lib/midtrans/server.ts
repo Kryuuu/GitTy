@@ -13,7 +13,7 @@ export function getMidtransSnap() {
       throw new Error("MIDTRANS_SERVER_KEY is not set");
     }
     _snap = new midtransClient.Snap({
-      isProduction: process.env.NODE_ENV === "production",
+      isProduction: process.env.NEXT_PUBLIC_MIDTRANS_IS_PRODUCTION === "true",
       serverKey: serverKey,
       clientKey: process.env.NEXT_PUBLIC_MIDTRANS_CLIENT_KEY || "",
     });
@@ -28,7 +28,7 @@ export function getMidtransCore() {
       throw new Error("MIDTRANS_SERVER_KEY is not set");
     }
     _core = new midtransClient.CoreApi({
-      isProduction: process.env.NODE_ENV === "production",
+      isProduction: process.env.NEXT_PUBLIC_MIDTRANS_IS_PRODUCTION === "true",
       serverKey: serverKey,
       clientKey: process.env.NEXT_PUBLIC_MIDTRANS_CLIENT_KEY || "",
     });
@@ -86,4 +86,47 @@ export async function createCheckoutSession({
 
   const transaction = await snap.createTransaction(parameters);
   return transaction;
+}
+
+export async function createQrisTransaction({
+  orgId,
+  price,
+  planId,
+  orderId,
+  customerEmail,
+  customerName,
+}: {
+  orgId: string;
+  price: number;
+  planId: string;
+  orderId: string;
+  customerEmail?: string;
+  customerName?: string;
+}) {
+  const core = getMidtransCore();
+  
+  const parameters = {
+    payment_type: "gopay",
+    transaction_details: {
+      order_id: orderId,
+      gross_amount: price,
+    },
+    customer_details: {
+      email: customerEmail || "customer@example.com",
+      first_name: customerName || "Customer",
+    },
+    item_details: [
+      {
+        id: planId,
+        price: price,
+        quantity: 1,
+        name: `GitTy ${planId.toUpperCase()} Plan Subscription`,
+      }
+    ],
+    custom_field1: orgId,
+    custom_field2: planId,
+  };
+
+  const response = await core.charge(parameters);
+  return response;
 }

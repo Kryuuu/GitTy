@@ -102,7 +102,7 @@ export default function PricingPage() {
                 ))}
               </ul>
               <Link
-                href="/register"
+                href={plan.price === 0 ? "/register" : `/app/checkout?plan=${key}`}
                 className={`mt-auto block text-center py-3 rounded-xl font-bold text-sm transition-all duration-300 ${
                   key === "team"
                     ? "bg-gradient-to-r from-brand-500 to-purple-600 text-white shadow-lg shadow-brand-500/25 hover:shadow-brand-500/50 hover:scale-[1.02]"

@@ -4,6 +4,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { plans, type PlanKey } from "@/lib/config";
 
@@ -17,39 +18,15 @@ export function BillingActions({
   currentPlan,
 }: BillingActionsProps) {
   const [isLoading, setIsLoading] = useState<string | null>(null);
+  const router = useRouter();
 
   async function handleUpgrade(planKey: PlanKey) {
     setIsLoading(planKey);
-
-    try {
-      const response = await fetch("/api/midtrans/checkout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          orgId,
-          plan: planKey,
-        }),
-      });
-
-      const data = await response.json();
-
-      if (data.url) {
-        window.location.href = data.url;
-      } else {
-        alert("Failed to create checkout session");
-      }
-    } catch {
-      alert("Something went wrong");
-    } finally {
-      setIsLoading(null);
-    }
+    router.push(`/app/checkout?plan=${planKey}`);
   }
 
   async function handleManage() {
     setIsLoading("manage");
-    // Usually with Midtrans, subscription management might be custom UI
-    // Since there's no ready portal like Stripe, we can redirect to a contact/support page
-    // or implement custom cancel API.
     alert("Subscription management features coming soon");
     setIsLoading(null);
   }
@@ -85,7 +62,7 @@ export function BillingActions({
           >
             <h4 className="font-semibold text-white">{plan.name}</h4>
             <p className="text-2xl font-bold text-white mt-1">
-              ${plan.price}
+              Rp {plan.price.toLocaleString("id-ID")}
               <span className="text-sm text-zinc-500">/mo</span>
             </p>
             <Button
