@@ -11,6 +11,7 @@ CREATE EXTENSION IF NOT EXISTS vector;
 DROP TABLE IF EXISTS public.marketplace_purchases CASCADE;
 DROP TABLE IF EXISTS public.marketplace_items CASCADE;
 DROP TABLE IF EXISTS public.subscriptions CASCADE;
+DROP TABLE IF EXISTS public.hub_pages CASCADE;
 DROP TABLE IF EXISTS public.public_pages CASCADE;
 DROP TABLE IF EXISTS public.agents CASCADE;
 DROP TABLE IF EXISTS public.ai_memory CASCADE;
@@ -684,3 +685,8 @@ CREATE TRIGGER update_subscriptions_updated_at BEFORE UPDATE ON public.subscript
 CREATE TRIGGER update_knowledge_updated_at BEFORE UPDATE ON public.knowledge FOR EACH ROW EXECUTE FUNCTION public.update_updated_at();
 CREATE TRIGGER update_ai_memory_updated_at BEFORE UPDATE ON public.ai_memory FOR EACH ROW EXECUTE FUNCTION public.update_updated_at();
 CREATE TRIGGER update_marketplace_items_updated_at BEFORE UPDATE ON public.marketplace_items FOR EACH ROW EXECUTE FUNCTION public.update_updated_at();
+
+-- ============================================
+-- RELOAD SCHEMA CACHE
+-- ============================================
+NOTIFY pgrst, 'reload schema';

@@ -26,11 +26,17 @@ export default async function BillingPage({
     .eq("org_id", orgId)
     .single();
 
-  const currentPlan = (subscription?.plan || "free") as PlanKey;
+  const isExpired = subscription?.current_period_end 
+    ? new Date(subscription.current_period_end).getTime() < Date.now()
+    : false;
+
+  const currentPlan = (isExpired ? "free" : (subscription?.plan || "free")) as PlanKey;
   const planConfig = plans[currentPlan];
   const usagePercent = subscription
     ? Math.round((subscription.usage_count / subscription.usage_limit) * 100)
     : 0;
+
+  const displayStatus = isExpired ? "expired" : subscription?.status;
 
   return (
     <div className="p-8 max-w-4xl">
@@ -60,17 +66,24 @@ export default async function BillingPage({
           </div>
         </div>
 
-        {subscription?.status && (
+        {displayStatus && (
           <div className="flex items-center gap-2 mb-4">
             <span
               className={`w-2 h-2 rounded-full ${
-                subscription.status === "active"
-                  ? "bg-green-400"
-                  : "bg-yellow-400"
+                isExpired 
+                  ? "bg-red-500" 
+                  : displayStatus === "active"
+                    ? "bg-green-400"
+                    : "bg-yellow-400"
               }`}
             />
-            <span className="text-sm text-zinc-400 capitalize">
-              {subscription.status}
+            <span className={`text-sm capitalize flex items-center gap-2 ${isExpired ? "text-red-400 font-semibold" : "text-zinc-400"}`}>
+              {displayStatus}
+              {subscription.current_period_end && (
+                <span className="text-xs text-zinc-500 normal-case border-l border-surface-400/50 pl-2">
+                  Expires {new Date(subscription.current_period_end).toLocaleDateString()}
+                </span>
+              )}
             </span>
           </div>
         )}
